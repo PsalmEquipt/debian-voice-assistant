@@ -20,10 +20,23 @@ USB mic ──► PipeWire ──► RNNoise noise suppression ──► RTP str
 It starts by itself at boot (no login needed). Optionally it also runs a Home
 Assistant voice satellite ([linux-voice-assistant]) on the same cleaned-up mic.
 
-For setup of all components (except the system monitor webpage) on a fresh Debian environment, run the automated installer directly from your terminal:
+To set up all components (except the system monitor webpage) on a fresh Debian environment, set up a dedicated non-root user with sudo access. Next, install the prerequisites: curl and git.
+```
+sudo apt update && sudo apt install -y git curl
+```
 
+Use this command to clone the repository:
 ```
-bash <(curl -sSL https://raw.githubusercontent.com/PsalmEquipt/debian-voice-assistant/main/setup.sh)
+git clone https://github.com/PsalmEquipt/debian-voice-assistant.git
 ```
+
+Then run the automated installer:
+```
+cd debian-voice-assistant
+chmod +x setup.sh
+./setup.sh
+```
+
+Visit the GitHub Project page at github.com /PsalmEquipt/debian-voice-assistant
 
 Home Assistant community: https://community.home-assistant.io/t/voice-assistant-microphone-upgrade/1032909
